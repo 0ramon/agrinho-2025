@@ -4,7 +4,7 @@ Projeto do Concurso Agrinho 2025 - Subcategoria 3
 Este é um jogo criado para o Concurso Agrinho 2025, com o tema **"Festejando a conexão campo-cidade"**.
 
 **Jogue agora:**  
- [https://seu-usuario.github.io/nome-do-repositorio/](https://seu-usuario.github.io/nome-do-repositorio/)
+ [https://0ramon.github.io/agrinho-2025/](https://0ramon.github.io/agrinho-2025/)
 
 ---
 
@@ -36,7 +36,7 @@ O jogo representa, de forma divertida, a interdependência entre o meio rural e 
 ## Tecnologias utilizadas
 
 - **JavaScript**
-- **[p5.js](https://p5js.org/)**
+- **p5.js**
 - HTML e CSS
 
 ---
