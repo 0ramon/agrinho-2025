@@ -128,7 +128,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(largura_tela, altura_tela); // cria a tela 
+  let canvas = createCanvas(largura_tela, altura_tela); // cria a tela
+  canvas.id('meuCanvas'); // centraliza a tela 
   rectMode(CENTER); // define o meio dos retangulos
   textAlign(CENTER, CENTER); // centraliza os textos
   imageMode(CENTER) // imagem centralizada
@@ -531,4 +532,7 @@ function tela_morte(){
 // === TERMINA O JOGO ===
 function fim(){
   background(255)
+  fill(0)
+  textSize(40)
+  text("FIM", largura_tela / 2, altura_tela / 2)
 }
