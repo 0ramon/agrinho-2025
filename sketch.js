@@ -7,6 +7,7 @@ let recomecar = true; // reinicia o personagem quando ele perde
 // slides da historia 
 let slide = {
   qual: 1, // qual slide o jogo mostra 
+  recomecar: false 
 }
 
 // transição
@@ -133,6 +134,7 @@ function setup() {
   rectMode(CENTER); // define o meio dos retangulos
   textAlign(CENTER, CENTER); // centraliza os textos
   imageMode(CENTER) // imagem centralizada
+  textFont("Bebas Neue");
 }
 
 function draw() {
@@ -202,9 +204,15 @@ function mousePressed() {
   // botão de avançar slides
   let d = dist(mouseX, mouseY, 600, 400);
   
-  if (progresso == 1 && d < 30){ // botão de avançar slide
+  // se estiver na tela de trocar de slide e o mouse for clicado emcima do botão,então troque de slide
+  if (progresso == 1 || progresso == 3 && d < 30 && slide.recomecar == false){ // botão de avançar slide
     slide.qual += 1;
     clicar.play(); // toca o efeito sonoro de clicar
+  }
+  if (progresso == 3 && slide.recomecar && tocando_no_botao_jogar()){ // botão de recomecar
+    fazer_transicao("out", 0);
+    clicar.play(); // toca o efeito sonoro de clicar
+    slide.recomecar = false;
   }
   
   if (progresso == 2 && personagem.morreu && tocando_no_botao_jogar()){
@@ -226,6 +234,7 @@ function tocando_no_botao_jogar(){
 
 // === TELA INICIAL ===
 function menu_inicio() {
+  slide.qual = 1;
   background(255); // cor do fundo
   textSize(20); // tamanho da fonte
 
@@ -339,6 +348,7 @@ function resetar_jogo(){
     troncos.lado = "direita"
     personagem.pode_andar = true;
     personagem.opacidade = 255;
+    slide.qual = 1;
 
     recomecar = false   
   }
@@ -532,7 +542,48 @@ function tela_morte(){
 // === TERMINA O JOGO ===
 function fim(){
   background(255)
-  fill(0)
-  textSize(40)
-  text("FIM", largura_tela / 2, altura_tela / 2)
-}
+  switch (slide.qual){
+    case 1:
+      textSize(18)
+      text("slide 1 de 4", 50, 430)
+
+      fill(0)
+      textSize(24)
+      text("você conseguiu chegar à cidade sem bater em nenhum tronco.", largura_tela / 2, 200, 300, 100)
+      text("parabéns!", largura_tela / 2, 250, 300, 100)
+
+      image(botao.sprite, 600, 400, 55, 55) // botão avançar
+      break
+    case 2:
+      textSize(18)
+      text("slide 2 de 4", 50, 430)
+      image(botao.sprite, 600, 400, 55, 55)
+      break
+    case 3:
+      textSize(18)
+      text("slide 3 de 4", 50, 430)
+      image(botao.sprite, 600, 400, 55, 55)
+      break
+    case 4:
+      slide.recomecar = true
+      // botão 
+      fill(botao.cor); 
+      rect(botao.x, botao.y, botao.largura, botao.altura, 10);
+
+      // muda a cor quando o mouse passa por cima do botão
+      if (tocando_no_botao_jogar()) {
+        botao.cor = [153, 205, 148];
+      } else {
+        botao.cor = [100, 180, 117];
+      }
+
+      fill(0)
+      textSize(18)
+      text("slide 4 de 4", 50, 430)
+      text("voltar", botao.x, 302);
+      textSize(22)
+      text("você deseja voltar a tela inicial do jogo ?", largura_tela / 2, 180, 250, 100);
+      recomecar = true;
+      break
+  }
+}  
