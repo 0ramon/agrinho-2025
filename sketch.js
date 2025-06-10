@@ -10,6 +10,12 @@ let slide = {
   recomecar: false 
 }
 
+let tutorial = { 
+  // imagens que aparecem no tutorial
+  cargas: null,
+  distancia: null,
+}
+
 // transição
 let transicao = {
   ocorrendo: false, // está ocorrendo?
@@ -107,6 +113,9 @@ let clicar;
 
 // === CARREGAR IMAGENS E SONS ===
 function preload() {
+  // tutorial
+  tutorial.cargas = loadImage("imagens/cargas.png")
+  tutorial.distancia = loadImage("imagens/distancia.png")
   // troncos
   troncos.sprite1 = loadImage("imagens/tronco 1.png")
 
@@ -241,8 +250,12 @@ function menu_inicio() {
   // botão jogar
   fill(botao.cor); 
   rect(botao.x, botao.y, botao.largura, botao.altura, 10); // Botão com borda arredondada
+  textSize(80)
+  fill(0)
+  text("desvio de troncos", largura_tela/2, 150); // titulo
 
   // texto da tela
+  textSize(20)
   fill(0);
   textFont("Bebas Neue");
   text("jogar", botao.x, 302);
@@ -262,55 +275,55 @@ function slides() {
   background(255);
   fill(0)
   
-  switch (slide.qual){
-    case 1:
-      textSize(30)
-      text("união entre campo e cidade", largura_tela / 2, 30)
-      textSize(18)
-      text("slide 1 de 6", 50, 430)
-      break
-    case 2:
-      textSize(30)
-      text("a isolação do campo", largura_tela / 2, 30)
-      textSize(19)
-      fill(50,50,50)
-      text("Nas áreas rurais do Paraná, a distância até os centros urbanos é um dos principais fatores de isolamento, dificultando o acesso a serviços e a participação na comunidade. \n — Prefeitura de Cascavel, 2016.", largura_tela / 2, 175, 450)
-      textSize(21)
-      fill(0,0,0)
-      text("essa é a realidade de muitas pessoas que vivem no campo, que lutam para se manter financeiramente transportando suas colheitas para a cidade.", largura_tela / 2, 275, 450)
-      textSize(18)
-      text("slide 2 de 6", 50, 430)
-      break
-    case 3:
-      textSize(30)
-      text("quem é Marquito", largura_tela / 2, 30)
-      textSize(18)
-      text("personagem na qual você controla", largura_tela / 2, 75)
-      textSize(21)
-      text("Marquito é um agricultor de 40 anos que vive na mesma fazenda no interior do Paraná desde criança. mas enfrenta dificuldades para levar suas colheitas até a cidade e garantir o sustento da família", largura_tela / 2, 225, 450)
-      textSize(18)
-      text("slide 3 de 6", 50, 430)
-      break
-    case 4:
-      textSize(30)
-      text("como jogar", largura_tela / 2, 30)
-      textSize(18)
-      text("slide 4 de 6", 50, 430)
-      break
-    case 5:
-      textSize(30)
-      text("avisos e dicas", largura_tela / 2, 30)
-      textSize(18)
-      text("slide 5 de 6", 50, 430)
-      break
-    case 6:
-      textSize(30)
-      text("prepare-se", largura_tela / 2, 30)
-      textSize(18)
-      text("slide 6 de 6", 50, 430)
-      fazer_transicao("out", 2);
-      break
-  } 
+ switch (slide.qual){
+  case 1:
+    textSize(24);
+    text("Marquito é um agricultor que vive na mesma fazenda desde criança. Mas ele enfrenta um grande desafio: levar suas colheitas até a cidade para vender e garantir o seu sustento. Isso se torna ainda mais difícil por morar em uma região isolada, distante das cidades.", largura_tela / 2, 100, 550);
+    textSize(18);
+    text("slide 1 de 6", 50, 430);
+    break;
+    
+  case 2:
+    textSize(24);
+    text("Depois de uma noite de tempestade, várias árvores caíram e bloquearam a estrada. Agora, você irá controlar Marquito e ajudá-lo a desviar dos troncos pelo caminho. Cada vez que bater em um tronco, ele perderá parte das cargas. Se todas forem perdidas, será necessário recomeçar a viagem!", largura_tela / 2, 100, 550);
+    textSize(18);
+    text("slide 2 de 6", 50, 430);
+    break;
+    
+  case 3:
+    textSize(24);
+    text("Marquito leva sua colheita até a cidade e, com o dinheiro que ganha, compra novas tecnologias, ferramentas e produtos para investir na produção rural. Esses itens são adquiridos na cidade, o que movimenta o comércio local e fortalece a economia urbana. Além disso, seus alimentos ajudam a abastecer a população.", largura_tela / 2, 100, 550);
+    textSize(18);
+    text("slide 3 de 6", 50, 430);
+    break;
+    
+  case 4:
+    textSize(24);
+    text("Use as setas direita e esquerda do teclado para mover o trator e desviar dos troncos. A barra no topo mostra quantas cargas ainda restam e a distância até a cidade.", largura_tela / 2, 100, 550);
+    textSize(18);
+    text("slide 4 de 6", 50, 430);
+    image(tutorial.cargas, 200, 300,)
+    image(tutorial.distancia, 425, 300,)
+    break;
+    
+  case 5:
+    textSize(24);
+    text("Fique atento aos avisos na tela! Eles indicam de qual lado o próximo tronco vai aparecer. Se você perder todas as cargas, não se preocupe: sempre é possível tentar de novo!", largura_tela / 2, 100, 550);
+    rect(largura_tela / 2, 300, 100, 100, 20)
+    image(avisos.sprite, largura_tela / 2, 300, 90, 90)
+    textSize(18);
+    text("slide 5 de 6", 50, 430);
+    break;
+    
+  case 6:
+    textSize(28);
+    text("Prepare-se!", largura_tela / 2, 180);
+    text("3... 2... 1...", largura_tela / 2, 230);
+    textSize(18);
+    text("slide 6 de 6", 50, 430);
+    fazer_transicao("out", 2);
+    break;
+} 
   image(botao.sprite, 600, 400, 55, 55)
 }
 
@@ -544,46 +557,60 @@ function fim(){
   background(255)
   switch (slide.qual){
     case 1:
-      textSize(18)
-      text("slide 1 de 4", 50, 430)
+      textSize(18);
+      text("slide 1 de 4", 50, 430);
 
-      fill(0)
-      textSize(24)
-      text("você conseguiu chegar à cidade sem bater em nenhum tronco.", largura_tela / 2, 200, 300, 100)
-      text("parabéns!", largura_tela / 2, 250, 300, 100)
+      fill(0);
+      textSize(24);
+      text("Você conseguiu ajudar Marquito a chegar à cidade com suas colheitas!", largura_tela / 2, 190, 500, 150);
+      text("Parabéns pela conquista!", largura_tela / 2, 250);
 
-      image(botao.sprite, 600, 400, 55, 55) // botão avançar
-      break
+      image(botao.sprite, 600, 400, 55, 55);
+      break;
+
     case 2:
-      textSize(18)
-      text("slide 2 de 4", 50, 430)
-      image(botao.sprite, 600, 400, 55, 55)
-      break
+      textSize(18);
+      text("slide 2 de 4", 50, 430);
+
+      fill(0);
+      textSize(22);
+      text("Com o dinheiro das vendas, Marquito pôde investir em novas ferramentas e melhorar sua produção.", largura_tela / 2, 200, 500, 150);
+      image(botao.sprite, 600, 400, 55, 55);
+      break;
+
     case 3:
-      textSize(18)
-      text("slide 3 de 4", 50, 430)
-      image(botao.sprite, 600, 400, 55, 55)
-      break
+      textSize(18);
+      text("slide 3 de 4", 50, 430);
+
+      fill(0);
+      textSize(22);
+      text("Essa jornada mostra como o campo e a cidade estão conectados. Um depende do outro para crescer, produzir e viver melhor.", largura_tela / 2, 200, 500, 150);
+      image(botao.sprite, 600, 400, 55, 55);
+      break;
+
     case 4:
-      slide.recomecar = true
-      // botão 
-      fill(botao.cor); 
+      slide.recomecar = true;
+
+      // botão voltar
+      fill(botao.cor);
       rect(botao.x, botao.y, botao.largura, botao.altura, 10);
 
-      // muda a cor quando o mouse passa por cima do botão
       if (tocando_no_botao_jogar()) {
         botao.cor = [153, 205, 148];
       } else {
         botao.cor = [100, 180, 117];
       }
 
-      fill(0)
-      textSize(18)
-      text("slide 4 de 4", 50, 430)
+      fill(0);
+      textSize(18);
+      text("slide 4 de 4", 50, 430);
       text("voltar", botao.x, 302);
-      textSize(22)
-      text("você deseja voltar a tela inicial do jogo ?", largura_tela / 2, 180, 250, 100);
+
+      textSize(22);
+      text("Obrigado por jogar e celebrar a união entre o campo e a cidade com Marquito!", largura_tela / 2, 170, 500, 150);
+      text("Clique em voltar para retornar ao início.", largura_tela / 2, 230);
+
       recomecar = true;
-      break
+      break;
   }
 }  
