@@ -252,7 +252,7 @@ function menu_inicio() {
   rect(botao.x, botao.y, botao.largura, botao.altura, 10); // Botão com borda arredondada
   textSize(80)
   fill(0)
-  text("desvio de troncos", largura_tela/2, 150); // titulo
+  text("troncos na estrada", largura_tela/2, 150); // titulo
 
   // texto da tela
   textSize(20)
