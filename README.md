@@ -1,12 +1,12 @@
 # Agrinho-2025
 Projeto do Concurso Agrinho 2025 - Subcategoria 3.
 
-Nome do projeto: **Troncos no caminho**.
+Nome do projeto: **Troncos na estrada**.
 
 Este é um jogo criado para o Concurso Agrinho 2025, com o tema **"Festejando a conexão campo-cidade"**.
 
 **Jogue agora:**  
- [https://0ramon.github.io/troncos-no-caminho-agrinho-2025/](https://0ramon.github.io/troncos-no-caminho-agrinho-2025/)
+ [https://0ramon.github.io/troncos-na-estrada-agrinho-2025/](https://0ramon.github.io/troncos-na-estrada-agrinho-2025/)
 
 ---
 
