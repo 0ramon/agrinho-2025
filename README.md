@@ -1,5 +1,6 @@
 # Agrinho-2025
 Projeto do Concurso Agrinho 2025 - Subcategoria 3
+Nome: **Troncos no caminho**
 
 Este é um jogo criado para o Concurso Agrinho 2025, com o tema **"Festejando a conexão campo-cidade"**.
 
@@ -48,18 +49,6 @@ Este repositório contém os arquivos obrigatórios exigidos pelo regulamento do
 - `index.html`
 - `sketch.js`
 - `style.css`
-
----
-
-## Requisitos atendidos conforme o regulamento
-
-- ✅ Projeto original e autoral, com narrativa e estética alinhadas ao tema.
-- ✅ Publicado em repositório público no GitHub.
-- ✅ Contém os arquivos `index.html`, `sketch.js` e `style.css` organizados corretamente.
-- ✅ README com instruções claras e explicação do funcionamento.
-- ✅ Link funcional publicado via GitHub Pages.
-- ✅ Tag `#agrinho` adicionada nas "Topics" do repositório.
-- ✅ Código organizado, comentado e com boas práticas.
 
 ---
 
