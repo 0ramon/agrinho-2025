@@ -6,7 +6,7 @@ Nome do projeto: **Troncos no caminho**.
 Este é um jogo criado para o Concurso Agrinho 2025, com o tema **"Festejando a conexão campo-cidade"**.
 
 **Jogue agora:**  
- [https://0ramon.github.io/agrinho-2025/](https://0ramon.github.io/agrinho-2025/)
+ [https://0ramon.github.io/troncos-no-caminho-agrinho-2025/](https://0ramon.github.io/troncos-no-caminho-agrinho-2025/)
 
 ---
 
