@@ -1,6 +1,6 @@
 # Agrinho-2025
-Projeto do Concurso Agrinho 2025 - Subcategoria 3
-Nome: **Troncos no caminho**
+Projeto do Concurso Agrinho 2025 - Subcategoria 3.
+Nome: **Troncos no caminho**.
 
 Este é um jogo criado para o Concurso Agrinho 2025, com o tema **"Festejando a conexão campo-cidade"**.
 
